@@ -31,17 +31,16 @@ export default function App() {
     return () => { cancelled = true; };
   }, []);
 
-  // Clear selection whenever a new result arrives.
-  useEffect(() => { setSelectedIdx(null); }, [result]);
-
   const handleImageSelected = (file, previewUrl) => {
     setImageFile(file);
     setImagePreviewUrl(previewUrl);
+    setSelectedIdx(null);
     reset();
   };
 
   const handleSubmit = (query) => {
     if (!imageFile) return;
+    setSelectedIdx(null);
     segment(imageFile, query);
   };
 

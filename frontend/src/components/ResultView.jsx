@@ -62,9 +62,6 @@ export default function ResultView({
     return () => ro.disconnect();
   }, [recompute, displaySrc]);
 
-  // Clear stale overlay immediately when the source image changes.
-  useEffect(() => { setOverlay(null); }, [displaySrc]);
-
   const handleToggle = () => {
     setTransitioning(true);
     setTimeout(() => {
