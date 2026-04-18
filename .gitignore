@@ -72,7 +72,7 @@ yarn-error.log*
 pnpm-debug.log*
 .pnpm-store/
 .yarn/
-package-lock.json
+# package-lock.json is committed so that npm ci works in CI
 
 # ── OS artifacts ─────────────────────────────────────────────────────────────
 .DS_Store
