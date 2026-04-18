@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(powershell.exe -Command \"Get-Process -Name python* -ErrorAction SilentlyContinue | Select-Object Id, Name | Format-Table -AutoSize\")",
+      "Bash(cmd.exe /c \"netstat -ano | findstr 8000\")",
+      "Bash(cmd.exe /c \"tasklist | findstr python\")"
+    ]
+  }
+}
