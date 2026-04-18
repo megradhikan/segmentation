@@ -377,14 +377,24 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0 12px;
-  cursor: default;
-  transition: background 120ms ease, border-color 120ms ease;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, opacity 150ms ease;
   animation: chipFadeIn 200ms ease both;
+  user-select: none;
 }
 
 .detection-chip:hover {
   background: var(--bg-hover);
   border-color: var(--border-active);
+}
+
+.detection-chip--selected {
+  background: var(--bg-hover);
+  border-color: var(--border-active);
+}
+
+.detection-chip--dimmed {
+  opacity: 0.4;
 }
 
 .chip-left {
@@ -512,6 +522,29 @@ button {
   color: var(--text-secondary);
   letter-spacing: 0.1em;
 }
+
+/* SVG detection overlay */
+
+.result-overlay {
+  overflow: visible;
+  pointer-events: all;
+}
+
+.det-box {
+  fill: transparent;
+  stroke: transparent;
+  cursor: pointer;
+  transition: fill 100ms ease, stroke 100ms ease;
+}
+
+/* Hover: faint white outline so the region is discoverable */
+.det-box:hover {
+  fill: rgba(255, 255, 255, 0.05);
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+/* Selected state is applied via inline style (detection color),
+   which takes priority — no override needed here. */
 
 /* 4. Result state */
 .canvas-result {

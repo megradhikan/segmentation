@@ -11,6 +11,7 @@ export default function App() {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
   const [modelsReady, setModelsReady] = useState(false);
+  const [selectedIdx, setSelectedIdx] = useState(null);
   const { segment, result, isLoading, error, reset } = useSegment();
 
   // Poll /health every 5 s until models report ready.
@@ -23,12 +24,15 @@ export default function App() {
           setModelsReady(true);
           return;
         }
-      } catch (_) {}
+      } catch { /* backend unreachable — retry */ }
       if (!cancelled) setTimeout(poll, 5000);
     };
     poll();
     return () => { cancelled = true; };
   }, []);
+
+  // Clear selection whenever a new result arrives.
+  useEffect(() => { setSelectedIdx(null); }, [result]);
 
   const handleImageSelected = (file, previewUrl) => {
     setImageFile(file);
@@ -89,6 +93,8 @@ export default function App() {
             <DetectionChips
               detections={result?.detections ?? null}
               hasResult={!!result}
+              selectedIdx={selectedIdx}
+              onSelect={setSelectedIdx}
             />
           </div>
         </aside>
@@ -98,6 +104,8 @@ export default function App() {
             imagePreviewUrl={imagePreviewUrl}
             result={result}
             isLoading={isLoading}
+            selectedIdx={selectedIdx}
+            onSelectDetection={setSelectedIdx}
           />
         </main>
       </div>

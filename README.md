@@ -17,7 +17,6 @@
 
 ## Demo
 
-> _Replace the placeholder below with a real screen-capture GIF after recording a demo._
 
 <div align="center">
   <img src="assets/demo.gif" alt="App demo" width="800"/>
@@ -207,13 +206,17 @@ curl -X POST http://localhost:8000/segment \
 
 ## Results
 
-> _Add screenshots here once you have them._
+| Query | Detections | Notes |
+|---|---|---|
+| `"person . car . bicycle"` | 25 objects | Multi-class, single query |
+| `"the coffee mug"` | 1 object | Small object in cluttered scene |
+| `"all people"` | 3 objects | Partially occluded instances |
 
-| Query | Result |
-|---|---|
-| `"the red car"` | _[screenshot]_ |
-| `"all people"` | _[screenshot]_ |
-| `"the dog on the left"` | _[screenshot]_ |
+
+![Multi-class street segmentation](assets/example_multiclass.png)
+![Small object in cluttered scene](assets/example_small.png)
+![Partially occluded objects](assets/example_occluded.png)
+
 
 ---
 

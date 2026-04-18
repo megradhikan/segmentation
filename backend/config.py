@@ -6,13 +6,21 @@ MODELS_DIR = BASE_DIR / "models"
 MODELS_DIR.mkdir(exist_ok=True)
 
 # Grounding DINO
-GDINO_CONFIG_URL = "https://raw.githubusercontent.com/IDEA-Research/GroundingDINO/main/groundingdino/config/GroundingDINO_SwinT_OGC.py"
-GDINO_CHECKPOINT_URL = "https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth"
+GDINO_CONFIG_URL = (
+    "https://raw.githubusercontent.com/IDEA-Research/GroundingDINO/main"
+    "/groundingdino/config/GroundingDINO_SwinT_OGC.py"
+)
+GDINO_CHECKPOINT_URL = (
+    "https://github.com/IDEA-Research/GroundingDINO/releases/download"
+    "/v0.1.0-alpha/groundingdino_swint_ogc.pth"
+)
 GDINO_CONFIG_PATH = MODELS_DIR / "GroundingDINO_SwinT_OGC.py"
 GDINO_CHECKPOINT_PATH = MODELS_DIR / "groundingdino_swint_ogc.pth"
 
 # SAM 2
-SAM2_CHECKPOINT_URL = "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_large.pt"
+SAM2_CHECKPOINT_URL = (
+    "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_large.pt"
+)
 SAM2_CHECKPOINT_PATH = MODELS_DIR / "sam2.1_hiera_large.pt"
 SAM2_MODEL_CONFIG = "configs/sam2.1/sam2.1_hiera_l.yaml"
 

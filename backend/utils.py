@@ -35,7 +35,10 @@ def validate_image_file(filename: str, file_size_bytes: int) -> None:
     if file_size_bytes > max_bytes:
         raise HTTPException(
             status_code=413,
-            detail=f"File too large ({file_size_bytes // 1_048_576} MB). Max: {MAX_IMAGE_SIZE_MB} MB.",
+            detail=(
+                f"File too large ({file_size_bytes // 1_048_576} MB). "
+                f"Max: {MAX_IMAGE_SIZE_MB} MB."
+            ),
         )
 
 
